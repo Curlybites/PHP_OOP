@@ -9,7 +9,7 @@ class Database
     private $user;
     private $password;
     private $db;
-    private $conn;
+    private $conn;  
 
     public function __construct()
     {

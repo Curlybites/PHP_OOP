@@ -5,6 +5,9 @@ require_once './database.php';
 class Registration
 {
     private $db;
+    private $conn;
+    private $table_name = "register";
+
 
     public function __construct(Database $db)
     {
@@ -26,5 +29,15 @@ class Registration
 
         $stmt->close();
         $this->db->closeConnection();
+    }
+
+    public function fetch(){
+
+        $this->conn = $this->db->dbconnection();
+        $query = "SELECT * FROM " . $this->table_name;
+        $result = $this->conn->query($query);
+        
+        return $result;
+       
     }
 }
